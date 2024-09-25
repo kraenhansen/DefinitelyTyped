@@ -143,13 +143,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -158,13 +158,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -173,13 +173,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it.only(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -188,13 +188,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it.only("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -203,13 +203,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it.skip(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -218,13 +218,13 @@ function test_bdd_it() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     it.skip("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -238,13 +238,13 @@ function test_bdd_xit() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     xit(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -253,13 +253,13 @@ function test_bdd_xit() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     xit("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -270,13 +270,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -285,13 +285,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -300,13 +300,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify.only(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -315,13 +315,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify.only("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -330,13 +330,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify.skip(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -345,13 +345,13 @@ function test_bdd_specify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     specify.skip("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -365,13 +365,13 @@ function test_bdd_xspecify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     xspecify(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -380,13 +380,13 @@ function test_bdd_xspecify() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     xspecify("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -397,13 +397,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -412,13 +412,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -427,13 +427,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test.only(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -442,13 +442,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test.only("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -457,13 +457,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test.skip(async function doesSomething() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -472,13 +472,13 @@ function test_tdd_qunit_test() {
         // $ExpectType Done
         done;
 
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     // $ExpectType Test
     test.skip("does something", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
@@ -490,24 +490,24 @@ function test_bdd_qunit_before() {
     before(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     before(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     before("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     before("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -516,24 +516,24 @@ function test_tdd_setup() {
     setup(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     setup(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     setup("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     setup("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -542,24 +542,24 @@ function test_bdd_qunit_after() {
     after(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     after(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     after("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     after("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -568,24 +568,24 @@ function test_tdd_teardown() {
     teardown(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     teardown(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     teardown("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     teardown("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -594,24 +594,24 @@ function test_bdd_qunit_beforeEach() {
     beforeEach(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     beforeEach(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     beforeEach("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     beforeEach("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -620,24 +620,24 @@ function test_tdd_suiteSetup() {
     suiteSetup(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteSetup(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteSetup("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteSetup("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -646,24 +646,24 @@ function test_bdd_qunit_afterEach() {
     afterEach(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     afterEach(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     afterEach("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     afterEach("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
@@ -672,65 +672,65 @@ function test_tdd_suiteTeardown() {
     suiteTeardown(function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteTeardown(async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteTeardown("description", function(done) {
         // $ExpectType Done
         done;
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 
     suiteTeardown("description", async function() {
-        // $ExpectType Context
+        // $ExpectType Context & UnknownExtraContext
         this;
     });
 }
 
-function test_Context(ctx: LocalMocha.Context, runnable: LocalMocha.Runnable) {
+function test_Context(ctx: LocalMocha.Context & LocalMocha.UnknownExtraContext, runnable: LocalMocha.Runnable) {
     // $ExpectType never
     ctx.skip(); // throws
 
     // $ExpectType number
     ctx.retries();
 
-    // $ExpectType Context
+    // $ExpectType Context & UnknownExtraContext
     ctx.retries(number);
 
-    // $ExpectType Runnable
+    // $ExpectType Runnable<UnknownExtraContext>
     ctx.runnable();
 
-    // $ExpectType Context
+    // $ExpectType Context & UnknownExtraContext
     ctx.runnable(runnable);
 
     // $ExpectType number
     ctx.slow();
 
-    // $ExpectType Context
+    // $ExpectType Context & UnknownExtraContext
     ctx.slow(number);
 
     // $ExpectType number
     ctx.timeout();
 
-    // $ExpectType Context
+    // $ExpectType Context & UnknownExtraContext
     ctx.timeout(number);
 
     // $ExpectType Test | undefined
     ctx.currentTest;
 
-    // $ExpectType Runnable | undefined
+    // $ExpectType Runnable<UnknownExtraContext> | undefined
     ctx.test;
 
     ctx["extended"] = any;
 
-    // $ExpectType any
+    // $ExpectType unknown
     ctx["extended"];
 
     ctx.retries(number)
@@ -738,6 +738,42 @@ function test_Context(ctx: LocalMocha.Context, runnable: LocalMocha.Runnable) {
         .slow(number)
         .timeout(number)
         .skip();
+}
+
+interface MyExtraContext {
+    foo: string;
+}
+
+function test_ExtraContext(ctx: LocalMocha.Context & MyExtraContext) {
+    before<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
+
+    beforeEach<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
+
+    after<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
+
+    afterEach<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
+
+    it<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
+
+    it.only<MyExtraContext>(function () {
+        // $ExpectType string
+        this.foo;
+    });
 }
 
 function test_reporter_string(localMocha: LocalMocha) {
@@ -1263,7 +1299,7 @@ function test_runner_events(runner: LocalMocha.Runner) {
 }
 
 function test_runnable_events(runnable: LocalMocha.Runnable) {
-    // $ExpectType Runnable
+    // $ExpectType Runnable<UnknownExtraContext>
     runnable.on("error", (error) => {
         // $ExpectType any
         error;

@@ -1365,9 +1365,9 @@ declare namespace Mocha {
          * Set the number of allowed retries on failed tests.
          */
         retries(n: number): this;
-
-        [key: string]: any;
     }
+
+    type UnknownExtraContext = Record<string | number | symbol, unknown>;
 
     interface RunnerConstants {
         readonly EVENT_HOOK_BEGIN: "hook";
