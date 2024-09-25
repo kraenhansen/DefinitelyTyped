@@ -395,7 +395,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: Func): void;
+        <ExtraContext = UnknownExtraContext>(fn: Func<ExtraContext>): void;
 
         /**
          * [bdd, qunit, tdd] Describe a "hook" to execute the given callback `fn`. The name of the
@@ -403,21 +403,21 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: AsyncFunc): void;
+        <ExtraContext = UnknownExtraContext>(fn: AsyncFunc<ExtraContext>): void;
 
         /**
          * [bdd, qunit, tdd] Describe a "hook" to execute the given `title` and callback `fn`.
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (name: string, fn?: Func): void;
+        <ExtraContext = UnknownExtraContext>(name: string, fn?: Func<ExtraContext>): void;
 
         /**
          * [bdd, qunit, tdd] Describe a "hook" to execute the given `title` and callback `fn`.
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (name: string, fn?: AsyncFunc): void;
+        <ExtraContext = UnknownExtraContext>(name: string, fn?: AsyncFunc<ExtraContext>): void;
     }
 
     interface SuiteFunction {
@@ -490,7 +490,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: Func): Test;
+        <ExtraContext = UnknownExtraContext>(fn: Func<ExtraContext>): Test;
 
         /**
          * Describe a specification or test-case with the given callback `fn` acting as a thunk.
@@ -498,7 +498,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(fn: AsyncFunc<ExtraContext>): Test;
 
         /**
          * Describe a specification or test-case with the given `title` and callback `fn` acting
@@ -506,7 +506,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: Func): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): Test;
 
         /**
          * Describe a specification or test-case with the given `title` and callback `fn` acting
@@ -514,7 +514,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): Test;
 
         /**
          * Indicates this test should be executed exclusively.
@@ -546,7 +546,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: Func): Test;
+        <ExtraContext = UnknownExtraContext>(fn: Func<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given callback `fn`
@@ -555,7 +555,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(fn: AsyncFunc<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given `title` and
@@ -563,7 +563,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: Func): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given `title` and
@@ -571,7 +571,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): Test;
     }
 
     interface PendingTestFunction {
@@ -582,7 +582,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: Func): Test;
+        <ExtraContext = UnknownExtraContext>(fn: Func<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given callback `fn`
@@ -591,7 +591,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (fn: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(fn: AsyncFunc<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given `title` and
@@ -599,7 +599,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: Func): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): Test;
 
         /**
          * [bdd, tdd, qunit] Describe a specification or test-case with the given `title` and
@@ -607,7 +607,7 @@ declare namespace Mocha {
          *
          * - _Only available when invoked via the mocha CLI._
          */
-        (title: string, fn?: AsyncFunc): Test;
+        <ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): Test;
     }
 
     /**
@@ -1131,18 +1131,17 @@ declare namespace Mocha {
      *
      * @see https://mochajs.org/api/Runnable.html
      */
-    class Runnable {
+    class Runnable<ExtraContext = UnknownExtraContext> {
         private _slow;
         private _retries;
         private _currentRetry;
         private _timeout;
         private _timeoutError;
 
-        constructor(title: string, fn?: Func | AsyncFunc);
+        constructor(title: string, fn?: Func<ExtraContext> | AsyncFunc<ExtraContext>);
 
-        id: string;
         title: string;
-        fn: Func | AsyncFunc | undefined;
+        fn: Func<ExtraContext> | AsyncFunc<ExtraContext> | undefined;
         body: string;
         async: boolean;
         sync: boolean;
@@ -1152,7 +1151,7 @@ declare namespace Mocha {
         parent?: Suite | undefined;
         state?: "failed" | "passed" | "pending" | undefined;
         timer?: any;
-        ctx?: Context | undefined;
+        ctx?: (Context & ExtraContext) | undefined;
         callback?: Done | undefined;
         allowUncaught?: boolean | undefined;
         file?: string | undefined;
@@ -1881,112 +1880,112 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeAll
          */
-        beforeAll(fn?: Func): this;
+        beforeAll<ExtraContext = UnknownExtraContext>(fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeAll
          */
-        beforeAll(fn?: AsyncFunc): this;
+        beforeAll<ExtraContext = UnknownExtraContext>(fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeAll
          */
-        beforeAll(title: string, fn?: Func): this;
+        beforeAll<ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeAll
          */
-        beforeAll(title: string, fn?: AsyncFunc): this;
+        beforeAll<ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterAll
          */
-        afterAll(fn?: Func): this;
+        afterAll<ExtraContext = UnknownExtraContext>(fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterAll
          */
-        afterAll(fn?: AsyncFunc): this;
+        afterAll<ExtraContext = UnknownExtraContext>(fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterAll
          */
-        afterAll(title: string, fn?: Func): this;
+        afterAll<ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after running tests.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterAll
          */
-        afterAll(title: string, fn?: AsyncFunc): this;
+        afterAll<ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeEach
          */
-        beforeEach(fn?: Func): this;
+        beforeEach<ExtraContext = UnknownExtraContext>(fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeEach
          */
-        beforeEach(fn?: AsyncFunc): this;
+        beforeEach<ExtraContext = UnknownExtraContext>(fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeEach
          */
-        beforeEach(title: string, fn?: Func): this;
+        beforeEach<ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` before each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#beforeEach
          */
-        beforeEach(title: string, fn?: AsyncFunc): this;
+        beforeEach<ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterEach
          */
-        afterEach(fn?: Func): this;
+        afterEach<ExtraContext = UnknownExtraContext>(fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterEach
          */
-        afterEach(fn?: AsyncFunc): this;
+        afterEach<ExtraContext = UnknownExtraContext>(fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterEach
          */
-        afterEach(title: string, fn?: Func): this;
+        afterEach<ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext>): this;
 
         /**
          * Run `fn(test[, done])` after each test case.
          *
          * @see https://mochajs.org/api/Mocha.Suite.html#afterEach
          */
-        afterEach(title: string, fn?: AsyncFunc): this;
+        afterEach<ExtraContext = UnknownExtraContext>(title: string, fn?: AsyncFunc<ExtraContext>): this;
 
         /**
          * Add a test `suite`.
@@ -2050,7 +2049,7 @@ declare namespace Mocha {
         /**
          * Generic hook-creator.
          */
-        protected _createHook(title: string, fn?: Func | AsyncFunc): Hook;
+        protected _createHook<ExtraContext = UnknownExtraContext>(title: string, fn?: Func<ExtraContext> | AsyncFunc<ExtraContext>): Hook;
     }
 
     // #region Suite "beforeAll" event
@@ -2287,12 +2286,12 @@ declare namespace Mocha {
     /**
      * Callback function used for tests and hooks.
      */
-    type Func = (this: Context, done: Done) => void;
+    type Func<ExtraContext = UnknownExtraContext> = (this: Context & ExtraContext, done: Done) => void;
 
     /**
      * Async callback function used for tests and hooks.
      */
-    type AsyncFunc = (this: Context) => PromiseLike<any>;
+    type AsyncFunc<ExtraContext = UnknownExtraContext>  = (this: Context & ExtraContext) => PromiseLike<any>;
 
     /**
      * Options to pass to Mocha.
@@ -2833,42 +2832,42 @@ declare module "mocha/lib/interfaces/common" {
             /**
              * Execute before running tests.
              */
-            before(fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            before<ExtraContext = Mocha.UnknownExtraContext>(fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute before running tests.
              */
-            before(name: string, fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            before<ExtraContext = Mocha.UnknownExtraContext>(name: string, fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute after running tests.
              */
-            after(fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            after<ExtraContext = Mocha.UnknownExtraContext>(fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute after running tests.
              */
-            after(name: string, fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            after<ExtraContext = Mocha.UnknownExtraContext>(name: string, fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute before each test case.
              */
-            beforeEach(fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            beforeEach<ExtraContext = Mocha.UnknownExtraContext>(fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute before each test case.
              */
-            beforeEach(name: string, fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            beforeEach<ExtraContext = Mocha.UnknownExtraContext>(name: string, fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute after each test case.
              */
-            afterEach(fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            afterEach<ExtraContext = Mocha.UnknownExtraContext>(fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             /**
              * Execute after each test case.
              */
-            afterEach(name: string, fn?: Mocha.Func | Mocha.AsyncFunc): void;
+            afterEach<ExtraContext = Mocha.UnknownExtraContext>(name: string, fn?: Mocha.Func<ExtraContext> | Mocha.AsyncFunc<ExtraContext>): void;
 
             suite: SuiteFunctions;
             test: TestFunctions;
